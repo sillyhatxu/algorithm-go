@@ -28,29 +28,6 @@ func SelectionSort(inputArray []int) ([]int, int, int) {
 	return inputArray, timeComplexity, spaceComplexity
 }
 
-func SelectionSort(inputArray []int) ([]int, int, int) {
-	fmt.Println(inputArray)
-	timeComplexity := 0
-	spaceComplexity := 0
-	for i, input := range inputArray {
-		minIndex := i
-		min := input
-		for j := i; j < len(inputArray); j++ {
-			timeComplexity++
-			if min > inputArray[j] {
-				min = inputArray[j]
-				minIndex = j
-			}
-		}
-		if min != input {
-			inputArray[minIndex] = input
-			inputArray[i] = min
-		}
-		fmt.Println(inputArray)
-	}
-	return inputArray, timeComplexity, spaceComplexity
-}
-
 func main() {
 	var output []int
 	var timeComplexity int

@@ -1,0 +1,41 @@
+程序执行：0ms
+文章总单词数：48
+
+nums: 3, 6.25%
+given: 2, 4.17%
+may: 2, 4.17%
+of: 2, 4.17%
+return: 2, 4.17%
+target: 2, 4.17%
+that: 2, 4.17%
+the: 2, 4.17%
+you: 2, 4.17%
+a: 1, 2.08%
+add: 1, 2.08%
+an: 1, 2.08%
+and: 1, 2.08%
+array: 1, 2.08%
+assume: 1, 2.08%
+because: 1, 2.08%
+each: 1, 2.08%
+element: 1, 2.08%
+exactly: 1, 2.08%
+example: 1, 2.08%
+have: 1, 2.08%
+indices: 1, 2.08%
+input: 1, 2.08%
+integers: 1, 2.08%
+not: 1, 2.08%
+numbers: 1, 2.08%
+one: 1, 2.08%
+same: 1, 2.08%
+solution: 1, 2.08%
+specific: 1, 2.08%
+such: 1, 2.08%
+they: 1, 2.08%
+to: 1, 2.08%
+twice: 1, 2.08%
+two: 1, 2.08%
+up: 1, 2.08%
+use: 1, 2.08%
+would: 1, 2.08%

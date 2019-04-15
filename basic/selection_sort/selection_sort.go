@@ -34,5 +34,4 @@ func main() {
 	var spaceComplexity int
 	output, timeComplexity, spaceComplexity = SelectionSort([]int{9, 5, 1, 3, 4, 7, 6, 2, 8}) //Always O(N^2)  --> In fact, O(N * (N-1))
 	log.Printf("Basic selection sort : %v; Time Complexity : %v; Space Complexity : %v", output, timeComplexity, spaceComplexity)
-
 }

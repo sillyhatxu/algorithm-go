@@ -2,9 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/google/gxui/math"
 )
 
 /**
+
+3. Longest Substring Without Repeating Characters
+
 Given a string, find the length of the longest substring without repeating characters.
 
 Example 1:
@@ -68,7 +72,7 @@ func lengthOfLongestSubstringOptimize(s string) int {
 			j = Max(j, val+1)
 		}
 		m[c] = i
-		maxLength = Max(maxLength, i-j+1)
+		maxLength = math.Max(maxLength, i-j+1)
 	}
 	return maxLength
 }

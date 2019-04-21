@@ -78,6 +78,48 @@ func longestPalindromeOptimize(s string) string {
 	return s[left : right+1]
 }
 
+/**
+LeetCode 中最牛逼解法
+
+运行结果
+Runtime: 0 ms, faster than 100.00% of Go online submissions for Longest Palindromic Substring.
+Memory Usage: 2.2 MB, less than 98.26% of Go online submissions for Longest Palindromic Substring.
+*/
+func longestPalindrome(s string) string {
+	if s == "" {
+		return ""
+	}
+	pre, max := s[:1], s[:1]
+	for i := 1; i < len(s); i++ {
+		begin := i - len(pre) - 1
+		if begin < 0 {
+			begin = 0
+		}
+		for j := begin; j <= i; j++ {
+			if isPalindrome(s[j : i+1]) {
+				pre = s[j : i+1]
+				if len(pre) > len(max) {
+					max = pre
+				}
+				break
+			}
+		}
+	}
+	return max
+}
+
+func isPalindrome(s string) bool {
+	left, right := 0, len(s)-1
+	for left < right {
+		if s[left] != s[right] {
+			return false
+		}
+		left++
+		right--
+	}
+	return true
+}
+
 func main() {
 	fmt.Println(longestPalindromeOptimize(""))
 	fmt.Println(longestPalindromeOptimize("a"))

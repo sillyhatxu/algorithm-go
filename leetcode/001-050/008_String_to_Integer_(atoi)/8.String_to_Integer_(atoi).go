@@ -152,14 +152,12 @@ func myAtoiOptimize(str string) int {
 }
 
 func main() {
-	//array := []string{"0-1", "  0000000000012345678", "20000000000000000000", "+1", "   +0 123", "42", "    -42", "4193 with words", "words and 987", "-91283472332"}
-	//result := []int{0, 12345678, 2147483647, 1, 0, 42, -42, 4193, 0, -2147483648}
 	array := []string{"-9223372036854775809", "0-1", "  0000000000012345678", "20000000000000000000", "+1", "   +0 123", "42", "    -42", "4193 with words", "words and 987", "-91283472332"}
 	result := []int{-2147483648, 0, 12345678, 2147483647, 1, 0, 42, -42, 4193, 0, -2147483648}
-	//fmt.Println("---------- myAtoi ----------")
-	//for i, str := range array {
-	//	fmt.Println(myAtoi(str) == result[i])
-	//}
+	fmt.Println("---------- myAtoi ----------")
+	for i, str := range array {
+		fmt.Println(myAtoi(str) == result[i])
+	}
 	fmt.Println("---------- myAtoiOptimize ----------")
 	for i, str := range array {
 		fmt.Println(myAtoiOptimize(str) == result[i])

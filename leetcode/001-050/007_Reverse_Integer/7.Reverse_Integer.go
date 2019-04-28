@@ -53,7 +53,9 @@ func reverse(x int) int {
 }
 
 func main() {
-	fmt.Println(reverse(123))
-	fmt.Println(reverse(-123))
-	fmt.Println(reverse(1534236469))
+	array := []int{123, -123, 120, 1534236469}
+	result := []int{321, -321, 21, 9646324351}
+	for i, str := range array {
+		fmt.Println(reverse(str) == result[i])
+	}
 }

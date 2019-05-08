@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func convert(s string, numRows int) string {
+func convertBackups(s string, numRows int) string {
 	if len(s) == 0 || numRows == 0 {
 		return ""
 	}
@@ -10,19 +10,18 @@ func convert(s string, numRows int) string {
 		return s
 	}
 	if numRows == 2 {
-		oddResult := ""
-		evenResult := ""
+		odd := ""
+		event := ""
 		for i, v := range s {
 			if i%2 == 0 {
-				oddResult += string(v)
+				odd += string(v)
 			} else {
-				evenResult += string(v)
+				event += string(v)
 			}
 
 		}
-		return oddResult + evenResult
+		return odd + event
 	}
-	//var resultArray = make([]string, len(s))
 	interval := 2*numRows - 2
 	middleCount := numRows - 2
 	middleNumber := make(map[int]bool)
@@ -61,15 +60,45 @@ func convert(s string, numRows int) string {
 	return result
 }
 
+func convert(s string, numRows int) string {
+	if numRows == 1 {
+		return s
+	}
+	if numRows == 2 {
+		odd := ""
+		event := ""
+		for i, v := range s {
+			if i%2 == 0 {
+				odd += string(v)
+			} else {
+				event += string(v)
+			}
+		}
+		return odd + event
+	}
+	var result []byte
+	rows, rIndex, upAndDown := make([][]byte, numRows), 0, false
+	for i := range s {
+		rows[rIndex] = append(rows[rIndex], s[i])
+		if rIndex == numRows-1 || rIndex == 0 {
+			upAndDown = !upAndDown
+		}
+		if upAndDown {
+			rIndex++
+		} else {
+			rIndex--
+		}
+	}
+	for i := range rows {
+		result = append(result, rows[i]...)
+	}
+	return string(result)
+}
+
 func main() {
-	//fmt.Println(convert("0123456789", 3) == "0481357926")
-	//fmt.Println(convert("PAYPALISHIRING", 0) == "")
-	//fmt.Println(convert("PAYPALISHIRING", 1) == "PAYPALISHIRING")
-	//fmt.Println(convert("ABCDEFG", 2) == "ACEGBDF")
-	//fmt.Println(convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR")
-	fmt.Println(convert("ABCDEFGHIJKLMNOPQ", 4))
-	fmt.Println("AGMBFHLNCEIKOQDJP")
+	fmt.Println(convert("0123456789", 3) == "0481357926")
+	fmt.Println(convert("PAYPALISHIRING", 1) == "PAYPALISHIRING")
+	fmt.Println(convert("ABCDEFG", 2) == "ACEGBDF")
+	fmt.Println(convert("PAYPALISHIRING", 3) == "PAHNAPLSIIGYIR")
 	fmt.Println(convert("ABCDEFGHIJKLMNOPQ", 4) == "AGMBFHLNCEIKOQDJP")
-	fmt.Println(convert("PAYPALISHIRING", 4))
-	fmt.Println(convert("PAYPALISHIRING", 4) == "PINALSIGYAHRPI")
 }

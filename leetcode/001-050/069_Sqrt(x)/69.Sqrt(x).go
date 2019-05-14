@@ -3,35 +3,33 @@ package main
 import "fmt"
 
 func mySqrt(x int) int {
-	current, previous := 0, x
+	if x == 1 || x == 0 {
+		return x
+	}
+	current, up, down := 0, x, 0
 	for true {
 		square := current * current
 		square1 := (current - 1) * (current - 1)
 		square2 := (current + 1) * (current + 1)
-		if x == square {
+		if x == square || (square < x && square2 > x) {
 			return current
-		} else if square > x && square1 < x {
+		} else if square1 == x || (square > x && square1 < x) {
 			return current - 1
-		} else if square < x && square2 > x {
-			return current + 1
 		}
-		temp := current
 		if square > x {
-
+			up = current
+			current = down + (up-down)/2
 		} else {
-			if current > previous {
-				current = previous + (current-previous)/2
-			} else {
-				current = current + (previous-current)/2
-			}
+			down = current
+			current = down + (up-down)/2
 		}
-		previous = temp
 	}
 	return 0
 }
 
 func main() {
-	fmt.Println(mySqrt(1813156381))
+	fmt.Println(mySqrt(1) == 1)
+	fmt.Println(mySqrt(1813156381) == 42581)
 	fmt.Println(mySqrt(4) == 2)
 	fmt.Println(mySqrt(8) == 2)
 }

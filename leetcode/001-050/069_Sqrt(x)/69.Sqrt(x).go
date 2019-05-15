@@ -13,7 +13,7 @@ func mySqrt(x int) int {
 		square2 := (current + 1) * (current + 1)
 		if x == square || (square < x && square2 > x) {
 			return current
-		} else if square1 == x || (square > x && square1 < x) {
+		} else if square > x && square1 < x {
 			return current - 1
 		}
 		if square > x {

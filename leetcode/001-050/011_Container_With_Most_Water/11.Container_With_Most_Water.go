@@ -34,9 +34,9 @@ func maxAreaOptimize(height []int) int {
 			maxArea = currentArea
 		}
 		if height[end] > height[start] {
-			start++
+			start++ //The starting coordinate moves backwards
 		} else {
-			end--
+			end-- //The end coordinate moves forward
 		}
 	}
 	return maxArea

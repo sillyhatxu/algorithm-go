@@ -7,16 +7,12 @@ import (
 
 func threeSum(nums []int) [][]int {
 	var results [][]int
-	length := len(nums)
-	if length == 0 || length < 3 {
-		return results
-	}
 	sort.Ints(nums)
-	for i := 0; i < length-2; i++ {
+	for i := 0; i < len(nums)-2; i++ {
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
-		target, left, right := -nums[i], i+1, length-1
+		target, left, right := -nums[i], i+1, len(nums)-1
 		for left < right {
 			sum := nums[left] + nums[right]
 			if sum == target {

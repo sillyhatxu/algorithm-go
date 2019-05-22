@@ -13,61 +13,25 @@ func threeSumClosest(nums []int, target int) int {
 		left, right := i+1, len(nums)-1
 		for left < right {
 			sum := nums[i] + nums[left] + nums[right]
-			//subTarget := target - sum
-			if sum == target {
+			subTarget := target - sum
+			if subTarget == 0 {
 				return sum
-			} else if sum > target && sum-target < near {
-				result = sum
-				near = sum - target
-			} else if sum < target && target-sum < near {
-				result = sum
-				near = target - sum
 			}
-			left++
-			if left == right {
+			if subTarget > 0 {
+				left++
+			} else {
 				right--
-				left = i + 1
+				subTarget = -subTarget
+			}
+			if near < 0 {
+				near = -near
+			} else if near > subTarget {
+				near = subTarget
+				result = sum
 			}
 		}
 	}
 	return result
-}
-
-func threeSumClosestOptimize(nums []int, target int) int {
-	L := len(nums)
-	if L == 3 {
-		return nums[0] + nums[1] + nums[2]
-	}
-	sort.Slice(nums, func(i, j int) bool { return nums[i] < nums[j] })
-	ret := 0
-	min := 2147483647
-	for i := 0; i < L-2; i++ {
-		j := i + 1
-		k := L - 1
-		for j < k {
-			sum := nums[i] + nums[j] + nums[k]
-			t := target - sum
-			if t == 0 {
-				return sum
-			}
-			if t > 0 {
-				j++
-			} else {
-				k--
-				t = -t
-			}
-
-			if min < 0 {
-				min = -min
-			}
-
-			if min > t {
-				min = t
-				ret = sum
-			}
-		}
-	}
-	return ret
 }
 
 func main() {

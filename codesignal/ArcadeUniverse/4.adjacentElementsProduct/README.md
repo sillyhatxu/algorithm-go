@@ -1,29 +1,29 @@
 # adjacentElementsProduct
 
-Given the string, check if it is a palindrome.
+Given an array of integers, find the pair of adjacent elements that has the largest product and return that product.
 
 Example
 
-For inputString = "aabaa", the output should be
-checkPalindrome(inputString) = true;
-For inputString = "abac", the output should be
-checkPalindrome(inputString) = false;
-For inputString = "a", the output should be
-checkPalindrome(inputString) = true.
+For inputArray = [3, 6, -2, -5, 7, 3], the output should be
+adjacentElementsProduct(inputArray) = 21.
+
+7 and 3 produce the largest product.
+
 Input/Output
 
 [execution time limit] 4 seconds (go)
 
-[input] string inputString
+[input] array.integer inputArray
 
-A non-empty string consisting of lowercase characters.
+An array of integers containing at least two elements.
 
 Guaranteed constraints:
-1 ≤ inputString.length ≤ 105.
+2 ≤ inputArray.length ≤ 10,
+-1000 ≤ inputArray[i] ≤ 1000.
 
-[output] boolean
+[output] integer
 
-true if inputString is a palindrome, false otherwise.
+The largest product of adjacent elements.
 [Go] Syntax Tips
 
 // Prints help message to the console

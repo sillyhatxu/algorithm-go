@@ -4,20 +4,21 @@ import "fmt"
 
 func generateParenthesis(n int) []string {
 	result := make([]string, 0)
-	backtrack(&result, "", 0, 0, n)
+	var sign []byte
+	backtrack(&result, sign, 0, 0, n)
 	return result
 }
 
-func backtrack(result *[]string, str string, open, close, max int) {
-	if len(str) == max*2 {
-		*result = append(*result, str)
+func backtrack(result *[]string, sign []byte, open, close, max int) {
+	if len(sign) == max*2 {
+		*result = append(*result, string(sign))
 		return
 	}
 	if open < max {
-		backtrack(result, str+"(", open+1, close, max)
+		backtrack(result, append(sign, '('), open+1, close, max)
 	}
 	if close < open {
-		backtrack(result, str+")", open, close+1, max)
+		backtrack(result, append(sign, ')'), open, close+1, max)
 	}
 }
 

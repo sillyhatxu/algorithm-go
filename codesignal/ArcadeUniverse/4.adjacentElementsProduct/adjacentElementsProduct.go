@@ -3,8 +3,14 @@ package main
 import "fmt"
 
 func adjacentElementsProduct(inputArray []int) int {
-
-	return 0
+	max := inputArray[0] * inputArray[1]
+	for i := 1; i < len(inputArray)-1; i++ {
+		temp := inputArray[i] * inputArray[i+1]
+		if max < temp {
+			max = temp
+		}
+	}
+	return max
 }
 
 func main() {

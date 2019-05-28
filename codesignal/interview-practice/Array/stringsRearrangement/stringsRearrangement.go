@@ -17,7 +17,7 @@ func oneLetterDiff(perm []string) bool {
 	last := len(perm) - 1
 	for i := 0; i < last; i++ {
 		if perm[i] == perm[i+1] {
-			return true
+			return false
 		}
 		mistakeNum := 1
 		for j := range perm[i] {
@@ -69,6 +69,15 @@ func permutate(c chan []string, inputs []string) {
 }
 
 func main() {
-	fmt.Println(stringsRearrangement([]string{"aba", "bbb", "bab"}))
+	fmt.Println(stringsRearrangement([]string{"abc", "abx", "axx", "abc"}) == false)
+	fmt.Println(stringsRearrangement([]string{"q", "q"}) == false)
+	fmt.Println(stringsRearrangement([]string{"aba", "bbb", "bab"}) == false)
 	fmt.Println(stringsRearrangement([]string{"ab", "bb", "aa"}))
+	fmt.Println(stringsRearrangement([]string{"zzzzab", "zzzzbb", "zzzzaa"}))
+	fmt.Println(stringsRearrangement([]string{"ab", "ad", "ef", "eg"}) == false)
+	fmt.Println(stringsRearrangement([]string{"abc", "bef", "bcc", "bec", "bbc", "bdc"}))
+	fmt.Println(stringsRearrangement([]string{"abc", "abx", "axx", "abx", "abc"}))
+	fmt.Println(stringsRearrangement([]string{"f", "g", "a", "h"}))
+	fmt.Println(stringsRearrangement([]string{"ff", "gf", "af", "ar", "hf"}))
+	fmt.Println(stringsRearrangement([]string{"a", "b", "c"}))
 }

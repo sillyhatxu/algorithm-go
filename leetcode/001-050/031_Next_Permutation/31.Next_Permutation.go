@@ -20,6 +20,12 @@ func main() {
 	array = []int{1, 3, 2}
 	nextPermutation(array)
 	fmt.Println(array)
+
+	array = []int{1, 2, 7, 4, 3, 1}
+	nextPermutation(array)
+	fmt.Println(array)
+	fmt.Println("1,3,1,2,4,7")
+
 	//array = []int{1, 2, 3}
 	//nextPermutation(array)
 	//fmt.Println(array)
